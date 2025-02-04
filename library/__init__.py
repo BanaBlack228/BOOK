@@ -1,2 +1,2 @@
-from book import Book
-from library import Library
+from library.book import Book
+from library.library import Library
