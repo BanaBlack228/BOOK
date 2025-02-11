@@ -41,6 +41,7 @@ class Library:
             raise ValueError("Такой книги нет")
 
     def get_books(self):
+        books = self.storage.read_data()
         return self.books
 
     def get_books_by_author(self,author:str):

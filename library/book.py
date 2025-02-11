@@ -94,6 +94,14 @@ class Book:
         else:
             raise ValueError("Неизвестный жанр!")
 
+    @property
+    def isbn(self):
+        return self.__isbn
+
+    @isbn.setter
+    def isbn(self, isbn):
+        self.__isbn = isbn
+
     def to_dict(self):
         data = {"id":self.id,
                 "author": self.author,
@@ -104,6 +112,18 @@ class Book:
 
                 }
         return data
+
+    def from_dict(self, book_data):
+        book = Book(
+                    author=book_data["author"],
+                    title=book_data["title"],
+                    year=book_data["year"],
+                    genre=book_data["genre"],
+                    )
+        book.isbn = book_data["isbn"]
+        book.id = book_data ["id"]
+        return book
+
 
 # book = Book(title="Капитанская дочка",author="Пушкин", year=1836, genre="роман")
 
