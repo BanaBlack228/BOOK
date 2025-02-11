@@ -21,6 +21,7 @@ class Book:
         self.year = year
         self.genre = genre
         self.__isbn = uuid.uuid4().hex[:9]
+        self.id = None
 
     def get_info(self):
 
@@ -94,11 +95,13 @@ class Book:
             raise ValueError("Неизвестный жанр!")
 
     def to_dict(self):
-        data = {"author": self.author,
+        data = {"id":self.id,
+                "author": self.author,
                 "title": self.title,
                 "year": self.year,
                 "genre": self.genre,
                 "ISBN": self.__isbn
+
                 }
         return data
 
